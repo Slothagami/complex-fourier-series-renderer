@@ -1,0 +1,13 @@
+{
+    "rimuru.svg": {
+        "time_step": 2e-4,
+        "constants": 250,
+        "intergral_precision": 1000,
+        "steps_per_frame": 5,
+        "fade_line": false
+    },
+    "rimuru-slime.svg": {},
+    "musical-note.svg": {
+        "scale": 5
+    }
+}
