@@ -8,6 +8,12 @@
     },
     "rimuru-slime.svg": {},
     "musical-note.svg": {
-        "scale": 5
+        "scale": 5,
+        "constants": 10
+    },
+    "pi.svg": {
+        "time_step": 2.5e-3,
+        "steps_per_frame": 3,
+        "constants": 100
     }
 }

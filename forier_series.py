@@ -2,9 +2,10 @@ import pygame as pg
 from cmath import *
 from read_svg import PathReader
 from constants import *
+import json
 
 class ForierSeries:
-    def __init__(self, img, settings, screen):
+    def __init__(self, img, settings, screen=-1):
         self.path = PathReader(img)
         self.screen = screen
 
@@ -98,6 +99,19 @@ class ForierSeries:
 
         print(f"Computing Constants: 100%")
         return constants
+
+    def save_constants(self, filen):
+        filen = filen.removesuffix(".svg")
+        filen += ".js"
+
+        # convert to json encodable list (remove complex numbers)
+        const_terms = [[[y.real, y.imag] for y in x] for x in self.const_terms]
+        data = {"settings": self.settings, "constants": const_terms}
+
+        with open("paths/computed/" + filen, "w+") as file:
+            file.write("const DATA = " + json.dumps(data))
+
+        print("Saved Constants to \"paths/computed/" + filen + "\"")
 
     def average_function(self, func, domain, precision=1000):
         # averages the value of the function from 0 to %domain%

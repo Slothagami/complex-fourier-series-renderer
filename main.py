@@ -5,7 +5,7 @@ import sys, json
 from forier_series import ForierSeries
 from constants import *
 
-image = "rimuru.svg"
+image = "pi.svg"
 with open("presets.json", "r") as file:
     settings = json.loads(file.read())[image]
 
@@ -14,7 +14,7 @@ clock = pg.time.Clock()
 screen = pg.display.set_mode((width, height))
 pg.display.set_caption("Complex Forier Series")
 
-series = ForierSeries("paths/" + image, settings, screen)
+series = ForierSeries("paths/svg/" + image, settings, screen)
 fps = series.settings["fps"]
 
 while True:
